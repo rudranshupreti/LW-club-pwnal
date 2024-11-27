@@ -1,9 +1,9 @@
 import React from 'react'
 
-const consultationMenahemant= () => {
+const ConsultationMenahemant= () => {
   return (
     <div>settings</div>
   )
 }
 
-export default consultationMenahemant
+export default ConsultationMenahemant

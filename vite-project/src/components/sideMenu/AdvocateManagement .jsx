@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ADmanegment = () => {
+const AdvocateManegment = () => {
   return (
     <div>settings</div>
   )
 }
 
-export default ADmanegment
+export default AdvocateManegment
