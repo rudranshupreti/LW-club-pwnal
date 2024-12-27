@@ -1,41 +1,47 @@
-/* Sidebar container */
+/* Sidebar Container */
 .sidebar {
-  width:250px;
+  width: 250px;
   height: 100vh;
-  background-color: #0d47a1;
+  background-color: #0d47a1; /* Dark blue background */
   color: #ffffff;
   display: flex;
   flex-direction: column;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  margin:0%
+  margin: 0%;
 }
-.logoImage{
-  margin-left:50px;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 20px;
+
+.logo {
+  display: flex;
   align-items: center;
 }
 
-.logoText{
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 20px;
+.logoImage {
+  width: 70px;
+  height: 70px;
+  display: block;
+  margin-right: 35px;
+  border-radius: 50%;
 }
+
+.logoText > h4 {
+  display: block;
+  font-size: 15px;
+  margin-left: 10px;
+  text-align: center;
+}
+
 .nav {
   flex: 1;
 }
 
 .navList {
   list-style-type: none;
-  padding: 0;
+  padding-top: 10px;
 }
 
 .navItem {
-  padding: 10px 15px;
+  margin: 10px 15px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
@@ -56,8 +62,140 @@
   color: #bbdefb;
 }
 
+.navLink > .icon {
+  padding-right: 10px;
+}
+
 .active {
-  display: block; /* Make the link a block element */
-  color: #000000;
+  display: block;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none; /* Hide hamburger menu on desktop */
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  display: none; /* No overlay for desktop */
+}
+
+/* Mobile View: Phones Only */
+@media (max-width: 480px) {
+  .logo {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+  }
+
+  .navList > li {
+    align-items: center;
+  }
+
+  .sidebar {
+    transform: translateX(-100%); /* Hide sidebar by default on phones */
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.active {
+    transform: translateX(0); /* Show sidebar when active */
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger menu on phones */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: #0056b3;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 15;
+    font-size: 20px;
+  }
+
+  .hamburger:hover {
+    background: #004080;
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+  }
+
+  .sidebar-overlay.active {
+    display: block; /* Show overlay when sidebar is active */
+  }
+}
+
+/* Logo Section */
+.logo {
+  display: flex;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.logoImage {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.logoText {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  white-space: nowrap;
+}
+
+/* Navigation Section */
+.navList {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.navItem {
+  margin: 15px 0;
+}
+
+.navLink {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  display: flex; /* Align icon and text */
+  align-items: center; /* Vertical alignment */
+  padding: 10px;
   border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+.navLink:hover {
+  background-color: #0056b3; /* Slightly lighter blue for hover */
+  color: #ffffff; /* Keep text white for consistency */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+  transform: translateX(5px); /* Slightly shift text on hover */
+}
+
+.active {
+  background-color: #004080; /* Darker blue for active link */
+  font-weight: bold;
+}
+
+/* Icon Styling */
+.icon {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 18px; /* Adjust icon size */
+  transition: transform 0.3s; /* Add a subtle scaling effect for icons */
+}
+
+.navLink:hover .icon {
+  transform: scale(1.1); /* Slightly enlarge icon on hover */
 }
